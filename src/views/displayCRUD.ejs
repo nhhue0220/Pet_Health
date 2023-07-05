@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get CRUD</title>
+</head>
+
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td,
+    th {
+        border: 1px solid #dddddd;
+        text-align: center;
+        padding: 16px 8px;
+    }
+
+    tbody> :nth-child(even) {
+        background-image: linear-gradient(to right, #8ecae6, #e3f5f9);
+    }
+
+    tbody> :nth-child(odd) {
+        background-image: linear-gradient(to right, #fa6a6c 0%, #f0fcf1 100%);
+    }
+
+
+    .btn {
+        text-decoration: none;
+        border-radius: 5px;
+        padding: 10px 16px;
+        text-align: center;
+        font-size: 14px;
+        cursor: pointer;
+    }
+
+    .btn-edit {
+        background-color: white;
+        color: black;
+        border: 2px solid #fcbf49;
+    }
+
+    .btn-edit:hover {
+        background-color: #fcbf49;
+        color: white;
+    }
+
+    .btn-delete {
+        background-color: white;
+        color: black;
+        border: 2px solid #f44336;
+    }
+
+    .btn-delete:hover {
+        background-color: #f44336;
+        color: white;
+    }
+</style>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Họ</th>
+                <th>Tên</th>
+                <th>Email</th>
+                <th>Địa chỉ</th>
+                <th>Hành động</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <% for(let i=0; i < dataTable.length; i++) { %>
+                <tr>
+                    <td>
+                        <%= dataTable[i].lastName %>
+                    </td>
+                    <td>
+                        <%= dataTable[i].firstName %>
+                    </td>
+                    <td>
+                        <%= dataTable[i].email %>
+                    </td>
+                    <td>
+                        <%= dataTable[i].address %>
+                    </td>
+                    <td>
+                        <a href="/edit-crud?id=<%= dataTable[i].id %>" class="btn btn-edit" type="button">Sửa</a>
+                        <a href="/delete-crud?id=<%= dataTable[i].id %>" class="btn btn-delete" type="button">Xóa</a>
+                    </td>
+                </tr>
+                <% } %>
+        </tbody>
+    </table>
+</body>
+
+</html>
